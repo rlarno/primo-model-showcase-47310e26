@@ -55,13 +55,13 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))]">
         <div className="container mx-auto px-4 py-20">
-          <div className="max-w-2xl mx-auto text-center animate-fade-in">
-            <div className="relative inline-block mb-8">
+          <div className="text-center animate-fade-in">
+            <div className="relative mb-8">
               <div className="relative overflow-hidden rounded-sm">
                 <img
                   src={heroPortrait}
                   alt="Portfolio headshot"
-                  className="w-full max-w-md mx-auto rounded-sm shadow-2xl"
+                  className="w-full mx-auto rounded-sm shadow-2xl"
                 />
               </div>
             </div>
