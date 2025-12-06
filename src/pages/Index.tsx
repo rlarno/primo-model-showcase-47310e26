@@ -5,16 +5,34 @@ import QuadrantModal from '@/components/QuadrantModal';
 import FullScreenViewer from '@/components/FullScreenViewer';
 
 // Import images
-import heroPortrait from '@/assets/hero-portrait.jpg';
-import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import gallery3 from '@/assets/gallery-3.jpg';
-import gallery4 from '@/assets/gallery-4.jpg';
-import gallery5 from '@/assets/gallery-5.jpg';
-import carousel1 from '@/assets/carousel-1.jpg';
-import carousel2 from '@/assets/carousel-2.jpg';
-import carousel3 from '@/assets/carousel-3.jpg';
-import carousel4 from '@/assets/carousel-4.jpg';
+import heroPortrait from '@/assets/_DSF0159.jpg';
+
+// Floating gallery images
+import gallery1 from '@/assets/_DSF0199.jpg';
+import gallery2 from '@/assets/_DSF0130.jpg';
+import gallery3 from '@/assets/_DSF0170.jpg';
+import gallery4 from '@/assets/_DSF0108.jpg';
+import gallery5 from '@/assets/_DSF0235.jpg';
+
+// Carousel images
+const carouselImageFiles = [
+  '_DSF0102.jpg',
+  '_DSF0108.jpg',
+  '_DSF0135.jpg',
+  '_DSF0130.jpg',
+  '_DSF0151.jpg',
+  '_DSF0159.jpg',
+  '_DSF0170.jpg',
+  '_DSF0181.jpg',
+  '_DSF0199.jpg',
+  '_DSF0220.jpg',
+  '_DSF0229.jpg',
+  '_DSF0235.jpg'
+];
+
+const carouselImages = carouselImageFiles.map(filename => 
+  require(`@/assets/${filename}`)
+);
 
 const Index = () => {
   const [quadrantModalOpen, setQuadrantModalOpen] = useState(false);
@@ -23,16 +41,21 @@ const Index = () => {
   const [currentVariants, setCurrentVariants] = useState<string[]>([]);
 
   const floatingImages = [gallery1, gallery2, gallery3, gallery4, gallery5];
-  const carouselImages = [carousel1, carousel2, carousel3, carousel4];
+
   
   // All images combined for indexing
   const allImages = [...floatingImages, ...carouselImages];
 
   // Generate variants for an image (simulating the _DSF9999-x pattern)
   const getImageVariants = (baseImage: string): string[] => {
-    // In a real scenario, these would be different files following the pattern
-    // For now, we'll use the same images to demonstrate the functionality
-    return [baseImage, baseImage, baseImage];
+    const lastDotIndex = baseImage.lastIndexOf('.');
+    const basePath = baseImage.substring(0, lastDotIndex);
+    const extension = baseImage.substring(lastDotIndex);
+    return [
+      `${basePath}-2${extension}`,
+      `${basePath}-3${extension}`,
+      `${basePath}-4${extension}`
+    ];
   };
 
   const handleImageClick = (imageIndex: number) => {
@@ -67,7 +90,7 @@ const Index = () => {
             </div>
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-4 text-foreground">
-              Portfolio
+              Loïc
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground font-light tracking-wide">
@@ -86,7 +109,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 text-center bg-secondary/10">
         <p className="text-sm text-muted-foreground tracking-wide">
-          © 2025 Portfolio. All rights reserved.
+          © 2025 Loïc Larno. All rights reserved.
         </p>
       </footer>
 

@@ -30,7 +30,7 @@ const QuadrantModal = ({ isOpen, onClose, mainImage, variants, onImageClick }: Q
             <img
               src={mainImage}
               alt="Main"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
           </div>
@@ -45,7 +45,7 @@ const QuadrantModal = ({ isOpen, onClose, mainImage, variants, onImageClick }: Q
               <img
                 src={variant}
                 alt={`Variant ${index + 2}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </div>
