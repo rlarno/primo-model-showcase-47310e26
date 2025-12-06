@@ -16,4 +16,18 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // Keep original names for images to improve caching
+          if (assetInfo.name && /\.(jpe?g|png|gif|svg|webp)$/i.test(assetInfo.name)) {
+            return 'assets/[name][extname]';
+          }
+          // Use hash for other assets (CSS, JS, etc.)
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
+  },
 }));
