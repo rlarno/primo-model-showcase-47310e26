@@ -9,7 +9,7 @@ import {
 
 interface PhotoCarouselProps {
   images: string[];
-  onImageClick: (imageIndex: number) => void;
+  onImageClick: (image: string) => void;
 }
 
 const PhotoCarousel = ({ images, onImageClick }: PhotoCarouselProps) => {
@@ -32,7 +32,7 @@ const PhotoCarousel = ({ images, onImageClick }: PhotoCarouselProps) => {
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div
                   className="cursor-pointer group"
-                  onClick={() => onImageClick(index + 5)} // Offset by floating gallery count
+                  onClick={() => onImageClick(image)}
                 >
                   <div className="relative overflow-hidden rounded-sm aspect-[3/4] bg-card">
                     <img

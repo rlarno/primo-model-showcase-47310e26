@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 interface FloatingGalleryProps {
   images: string[];
-  onImageClick: (imageIndex: number) => void;
+  onImageClick: (image: string) => void;
 }
 
 const FloatingGallery = ({ images, onImageClick }: FloatingGalleryProps) => {
@@ -19,7 +19,7 @@ const FloatingGallery = ({ images, onImageClick }: FloatingGalleryProps) => {
               style={{
                 animationDelay: `${index * 0.3}s`,
               }}
-              onClick={() => onImageClick(index)}
+              onClick={() => onImageClick(image)}
             >
               <div className="relative overflow-hidden rounded-sm aspect-[3/4] bg-card">
                 <img

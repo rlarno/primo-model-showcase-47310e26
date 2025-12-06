@@ -14,9 +14,27 @@ import gallery3 from '@/assets/_DSF7847-4.jpg';
 import gallery4 from '@/assets/_DSF0108-3.jpg';
 import gallery5 from '@/assets/_DSF0235.jpg';
 
+const portfolioImagesNames = [
+  // Selected by BMA (and not used above)
+  '_DSF0102-2.jpg',
+  '_DSF0135.jpg',
+  '_DSF0151-4.jpg',
+  '_DSF0159-2.jpg',
+  '_DSF0170-2.jpg',
+  '_DSF0181-3.jpg',
+  '_DSF0220-3.jpg',
+  '_DSF0229-3.jpg',
+  // Selected by Rudi
+  '_DSF0240-4.jpg',
+  '_DSF7872-2.jpg',
+  '_DSF7861-4.jpg',
+  '_DSF7857-3.jpg',
+  '_DSF7864.jpg',
+  ];
+
 // Dynamically import all images from gallery folder for carousel
-const carouselModules = import.meta.glob('@/assets/gallery/*.jpg', { eager: true, import: 'default' });
-const carouselImages = Object.values(carouselModules) as string[];
+const imageModules = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' });
+const allImages = Object.values(imageModules) as string[];
 
 const Index = () => {
   const [quadrantModalOpen, setQuadrantModalOpen] = useState(false);
@@ -24,11 +42,16 @@ const Index = () => {
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [currentVariants, setCurrentVariants] = useState<string[]>([]);
 
-  const floatingImages = [gallery1, gallery2, gallery3, gallery4, gallery5];
+  const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5];
 
-  
-  // All images combined for indexing
-  const allImages = [...floatingImages, ...carouselImages];
+  // Map portfolio image names to their full paths from allImages
+  const getPortfolioImages = (imageNames: string[]): string[] => {
+    return imageNames
+      .map(name => allImages.find(imagePath => imagePath.includes(name)))
+      .filter((img): img is string => img !== undefined);
+  };
+
+  const portfolioImages = getPortfolioImages(portfolioImagesNames);
 
   // Strip variant suffix from image path to get base image
   const getBaseImage = (imagePath: string): string => {
@@ -53,9 +76,8 @@ const Index = () => {
     ];
   };
 
-  const handleImageClick = (imageIndex: number) => {
-    const clickedImage = allImages[imageIndex];
-    const baseImage = getBaseImage(clickedImage);
+  const handleImageClick = (image: string) => {
+    const baseImage = getBaseImage(image);
     const variants = getImageVariants(baseImage);
     
     setSelectedImage(baseImage);
@@ -97,10 +119,65 @@ const Index = () => {
       </section>
 
       {/* Floating Gallery Section */}
-      <FloatingGallery images={floatingImages} onImageClick={handleImageClick} />
+      <FloatingGallery images={galleryImages} onImageClick={handleImageClick} />
 
       {/* Carousel Section */}
-      <PhotoCarousel images={carouselImages} onImageClick={handleImageClick} />
+      <PhotoCarousel images={portfolioImages} onImageClick={handleImageClick} />
+
+      {/* Contact Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-light text-center mb-12 tracking-wide">
+            Get in Touch
+          </h2>
+          
+          <div className="text-center space-y-8">
+            {/* Email */}
+            <div>
+              <p className="text-muted-foreground mb-3 text-sm tracking-wide uppercase">Email</p>
+              <a
+                href="mailto:contact-loic@larno.be"
+                className="text-xl md:text-2xl font-light text-foreground hover:text-primary transition-colors duration-300"
+              >
+                contact-loic@larno.be
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <p className="text-muted-foreground mb-6 text-sm tracking-wide uppercase">Follow</p>
+              <div className="flex justify-center gap-8">
+                <a
+                  href="https://belgiummodelagency.be/modellen-bekijken/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
+                >
+                  Belgium Model Agency
+                </a>
+                <a
+                  href="https://inthepicture.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
+                >
+                  In The Picture
+                </a>
+                <a
+                  href="https://www.figuratie.be/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
+                >
+                  Figuratie
+                </a>
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="py-12 text-center bg-secondary/10">

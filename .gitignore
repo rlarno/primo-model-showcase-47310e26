@@ -23,3 +23,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# .net build results
+bin/
+obj/
+
+
+# Keep these asset files from being uploaded
+src/assets/gallery/*
+src/assets/originals/*
