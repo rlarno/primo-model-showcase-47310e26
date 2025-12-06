@@ -1,38 +1,22 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import FloatingGallery from '@/components/FloatingGallery';
 import PhotoCarousel from '@/components/PhotoCarousel';
 import QuadrantModal from '@/components/QuadrantModal';
 import FullScreenViewer from '@/components/FullScreenViewer';
 
-// Import images
-import heroPortrait from '@/assets/_DSF0159.jpg';
+// Import hero image
+import heroPortrait from '@/assets/_DSF0159-3.jpg';
 
-// Floating gallery images
-import gallery1 from '@/assets/_DSF0199.jpg';
-import gallery2 from '@/assets/_DSF0130.jpg';
-import gallery3 from '@/assets/_DSF0170.jpg';
-import gallery4 from '@/assets/_DSF0108.jpg';
+// Floating gallery images (preselected)
+import gallery1 from '@/assets/_DSF0199-2.jpg';
+import gallery2 from '@/assets/_DSF0130-3.jpg';
+import gallery3 from '@/assets/_DSF7847-4.jpg';
+import gallery4 from '@/assets/_DSF0108-3.jpg';
 import gallery5 from '@/assets/_DSF0235.jpg';
 
-// Carousel images
-const carouselImageFiles = [
-  '_DSF0102.jpg',
-  '_DSF0108.jpg',
-  '_DSF0135.jpg',
-  '_DSF0130.jpg',
-  '_DSF0151.jpg',
-  '_DSF0159.jpg',
-  '_DSF0170.jpg',
-  '_DSF0181.jpg',
-  '_DSF0199.jpg',
-  '_DSF0220.jpg',
-  '_DSF0229.jpg',
-  '_DSF0235.jpg'
-];
-
-const carouselImages = carouselImageFiles.map(filename => 
-  require(`@/assets/${filename}`)
-);
+// Dynamically import all images from gallery folder for carousel
+const carouselModules = import.meta.glob('@/assets/gallery/*.jpg', { eager: true, import: 'default' });
+const carouselImages = Object.values(carouselModules) as string[];
 
 const Index = () => {
   const [quadrantModalOpen, setQuadrantModalOpen] = useState(false);
@@ -45,6 +29,17 @@ const Index = () => {
   
   // All images combined for indexing
   const allImages = [...floatingImages, ...carouselImages];
+
+  // Strip variant suffix from image path to get base image
+  const getBaseImage = (imagePath: string): string => {
+    const lastDotIndex = imagePath.lastIndexOf('.');
+    const basePath = imagePath.substring(0, lastDotIndex);
+    const extension = imagePath.substring(lastDotIndex);
+    
+    // Remove -2, -3, -4 suffix if present
+    const cleanBasePath = basePath.replace(/-[2-4]$/, '');
+    return `${cleanBasePath}${extension}`;
+  };
 
   // Generate variants for an image (simulating the _DSF9999-x pattern)
   const getImageVariants = (baseImage: string): string[] => {
@@ -59,7 +54,8 @@ const Index = () => {
   };
 
   const handleImageClick = (imageIndex: number) => {
-    const baseImage = allImages[imageIndex];
+    const clickedImage = allImages[imageIndex];
+    const baseImage = getBaseImage(clickedImage);
     const variants = getImageVariants(baseImage);
     
     setSelectedImage(baseImage);
