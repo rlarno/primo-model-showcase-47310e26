@@ -19,8 +19,12 @@
     <meta name="twitter:image" content="https://loic.larno.be/portrait.jpg" />
 
     <meta name="google-site-verification" content="PbDCYm2fxUY-LHlK9vtCAXi83u5O0TdEkUAXDOoLBOM" />
-  </head>
+  
+  <!-- Preload the LCP image with a high fetchpriority so it starts loading with the stylesheet. -->
+  <link rel="preload" fetchpriority="high" as="image" href="/assets/_DSF0159-3.jpg" type="image/jpeg" />
 
+</head>
+    
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

@@ -100,14 +100,6 @@ function generateSitemapXml() {
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-  
-  <!-- Direct Image Link -->
-  <url>
-    <loc>${domain}/portrait.jpg</loc>
-    <lastmod>2025-12-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
 </urlset>
 `;
