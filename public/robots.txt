@@ -1,14 +1,35 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Allow all bots to index the site
 User-agent: *
 Allow: /
+
+# Block indexing of the full assets folder
+Disallow: /assets/
+# Block variant images that aren't shown by default
+Disallow: /assets/*-2.jpg
+Disallow: /assets/*-3.jpg
+Disallow: /assets/*-4.jpg
+
+# Allow indexing of specific images used on the site
+
+Allow: /assets/_DSF0159-3.jpg
+Allow: /assets/_DSF0199-2.jpg
+Allow: /assets/_DSF0130-3.jpg
+Allow: /assets/_DSF7847-4.jpg
+Allow: /assets/_DSF0108-3.jpg
+Allow: /assets/_DSF0235.jpg
+Allow: /assets/_DSF0102-2.jpg
+Allow: /assets/_DSF0135.jpg
+Allow: /assets/_DSF0151-4.jpg
+Allow: /assets/_DSF0159-2.jpg
+Allow: /assets/_DSF0170-2.jpg
+Allow: /assets/_DSF0181-3.jpg
+Allow: /assets/_DSF0220-3.jpg
+Allow: /assets/_DSF0229-3.jpg
+Allow: /assets/_DSF0240-4.jpg
+Allow: /assets/_DSF7872-2.jpg
+Allow: /assets/_DSF7861-4.jpg
+Allow: /assets/_DSF7857-3.jpg
+Allow: /assets/_DSF7864.jpg
+
+# Sitemap location
+Sitemap: https://loic.larno.be/sitemap.xml

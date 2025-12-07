@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main Portfolio Page -->
+  <url>
+    <loc>https://loic.larno.be/</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Hero Image -->
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0159-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Fashion & Editorial Model Portfolio</image:caption>
+      <image:title>Portfolio Headshot</image:title>
+    </image:image>
+    
+    <!-- Gallery Images -->
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0199-2.jpg</image:loc>
+      <image:caption>Loïc Larno - Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0130-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF7847-4.jpg</image:loc>
+      <image:caption>Loïc Larno - Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0108-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0235.jpg</image:loc>
+      <image:caption>Loïc Larno - Modeling Portfolio</image:caption>
+    </image:image>
+    
+    <!-- Portfolio Carousel Images -->
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0102-2.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0135.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0151-4.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0159-2.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0170-2.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0181-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0220-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0229-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF0240-4.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF7872-2.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF7861-4.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF7857-3.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://loic.larno.be/assets/_DSF7864.jpg</image:loc>
+      <image:caption>Loïc Larno - Professional Modeling Portfolio</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Privacy Notice Page -->
+  <url>
+    <loc>https://loic.larno.be/privacy.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Direct Image Link -->
+  <url>
+    <loc>https://loic.larno.be/portrait.jpg</loc>
+    <lastmod>2025-12-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

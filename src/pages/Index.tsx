@@ -3,46 +3,32 @@ import FloatingGallery from '@/components/FloatingGallery';
 import PhotoCarousel from '@/components/PhotoCarousel';
 import QuadrantModal from '@/components/QuadrantModal';
 import FullScreenViewer from '@/components/FullScreenViewer';
-
-// Import hero image
-import heroPortrait from '@/assets/_DSF0159-3.jpg';
-
-// Floating gallery images (preselected)
-import gallery1 from '@/assets/_DSF0199-2.jpg';
-import gallery2 from '@/assets/_DSF0130-3.jpg';
-import gallery3 from '@/assets/_DSF7847-4.jpg';
-import gallery4 from '@/assets/_DSF0108-3.jpg';
-import gallery5 from '@/assets/_DSF0235.jpg';
-
-const portfolioImagesNames = [
-  // Selected by BMA (and not used above)
-  '_DSF0102-2.jpg',
-  '_DSF0135.jpg',
-  '_DSF0151-4.jpg',
-  '_DSF0159-2.jpg',
-  '_DSF0170-2.jpg',
-  '_DSF0181-3.jpg',
-  '_DSF0220-3.jpg',
-  '_DSF0229-3.jpg',
-  // Selected by Rudi
-  '_DSF0240-4.jpg',
-  '_DSF7872-2.jpg',
-  '_DSF7861-4.jpg',
-  '_DSF7857-3.jpg',
-  '_DSF7864.jpg',
-  ];
+import imagesConfig from '@/config/images.json';
 
 // Dynamically import all images from gallery folder for carousel
 const imageModules = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' });
 const allImages = Object.values(imageModules) as string[];
+
+// Helper function to find image by filename
+const findImageByFilename = (filename: string): string => {
+  const found = allImages.find(imagePath => imagePath.includes(filename));
+  if (!found) {
+    console.warn(`Image not found: ${filename}`);
+    return '';
+  }
+  return found;
+};
+
+// Load images from config
+const heroPortrait = findImageByFilename(imagesConfig.hero.filename);
+const galleryImages = imagesConfig.gallery.map(img => findImageByFilename(img.filename));
+const portfolioImagesNames = imagesConfig.portfolio.map(img => img.filename);
 
 const Index = () => {
   const [quadrantModalOpen, setQuadrantModalOpen] = useState(false);
   const [fullScreenOpen, setFullScreenOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [currentVariants, setCurrentVariants] = useState<string[]>([]);
-
-  const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5];
 
   // Map portfolio image names to their full paths from allImages
   const getPortfolioImages = (imageNames: string[]): string[] => {
