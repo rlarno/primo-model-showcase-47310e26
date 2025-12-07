@@ -183,7 +183,7 @@ const Index = () => {
       <footer className="py-12 text-center bg-secondary/10">
         <p className="text-sm text-muted-foreground tracking-wide">
           © 2025-2026 Loïc Larno. All rights reserved. 
-          <br/><a href="/privacy.html">Privacy Notice</a>
+          <br/><a href="privacy.html">Privacy Notice</a>
         </p>
       </footer>
 
